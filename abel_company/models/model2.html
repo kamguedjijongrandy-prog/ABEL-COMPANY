@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{COMPANY_NAME}} Modern Brochure</title>
+
+<style>
+
+/* Print as A4 paper */
+@page {
+    size: A4;
+    margin: 0;
+}
+
+/* Remove default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background outside brochure */
+body {
+    background: #eeeeee;
+    font-family: Arial, sans-serif;
+}
+
+/* Main A4 brochure */
+.brochure {
+    width: 210mm;
+    height: 297mm;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* Background building image */
+.city-bg {
+    position: absolute;
+    inset: 0;
+
+    background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1400');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: grayscale(100%);
+}
+
+/* Light overlay */
+.city-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.45);
+}
+
+/* Left main coloured shape */
+.left-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 62%;
+    height: 100%;
+
+    background: {{PRIMARY_COLOR}};
+
+    clip-path: polygon(
+        0 0,
+        75% 0,
+        50% 50%,
+        75% 100%,
+        0 100%
+    );
+}
+
+/* White middle shape */
+.center-shape {
+    position: absolute;
+    top: 0;
+    left: 18%;
+
+    width: 42%;
+    height: 100%;
+
+    background: #ffffff;
+
+    clip-path: polygon(
+        20% 0,
+        100% 0,
+        70% 50%,
+        100% 100%,
+        20% 100%,
+        0 50%
+    );
+}
+
+/* Right coloured strip */
+.right-strip {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 28%;
+    height: 100%;
+
+    background: {{SECONDARY_COLOR}};
+    opacity: 0.88;
+}
+
+/* Logo position */
+.logo {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 10;
+}
+
+/* Logo circle */
+.logo-circle {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+    background: #ffffff;
+    color: {{PRIMARY_COLOR}};
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Uploaded logo image */
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main company information */
+.content {
+    position: absolute;
+    left: 55px;
+    top: 170px;
+
+    width: 290px;
+    z-index: 10;
+}
+
+/* Company name */
+.content h1 {
+    font-size: 38px;
+    line-height: 1.1;
+    color: {{SECONDARY_COLOR}};
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+/* Business description */
+.content p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Services section */
+.services {
+    position: absolute;
+    right: 35px;
+    top: 120px;
+
+    width: 180px;
+    z-index: 10;
+    color: #ffffff;
+}
+
+/* Services heading */
+.services h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* Services text */
+.services p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Contact section */
+.contact {
+    position: absolute;
+    left: 55px;
+    bottom: 85px;
+
+    z-index: 10;
+    width: 360px;
+}
+
+/* Owner name */
+.contact h2 {
+    color: {{SECONDARY_COLOR}};
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+/* Contact details */
+.contact p {
+    color: #333333;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    left: 55px;
+    bottom: 28px;
+
+    z-index: 10;
+    font-size: 12px;
+    color: #555555;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="brochure">
+
+    <!-- BACKGROUND IMAGE -->
+    <div class="city-bg"></div>
+    <div class="city-overlay"></div>
+
+    <!-- DESIGN SHAPES -->
+    <div class="left-shape"></div>
+    <div class="center-shape"></div>
+    <div class="right-strip"></div>
+
+    <!-- LOGO -->
+    <div class="logo">
+        <div class="logo-circle">
+            {{LOGO}}
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <h1>{{COMPANY_NAME}}</h1>
+
+        <p>
+            {{DESCRIPTION}}
+        </p>
+
+    </div>
+
+    <!-- SERVICES -->
+    <div class="services">
+
+        <h3>Our Services</h3>
+
+        <p>
+            {{SERVICES}}
+        </p>
+
+    </div>
+
+    <!-- CONTACT DETAILS -->
+    <div class="contact">
+
+        <h2>{{FULL_NAME}}</h2>
+
+        <p><strong>Email:</strong> {{EMAIL}}</p>
+        <p><strong>Phone:</strong> {{PHONE}}</p>
+        <p><strong>Address:</strong> {{ADDRESS}}</p>
+        <p><strong>Website:</strong> {{WEBSITE_URL}}</p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © {{YEAR}} {{COMPANY_NAME}} • {{TAGLINE}}
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{COMPANY_NAME}} Business Brochure</title>
+
+<style>
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eaeaea;
+    font-family: Arial, sans-serif;
+}
+
+.brochure {
+    width: 210mm;
+    height: 297mm;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* TOP COLOUR AREA */
+.top-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42%;
+    background: linear-gradient(
+        135deg,
+        {{PRIMARY_COLOR}},
+        {{SECONDARY_COLOR}}
+    );
+}
+
+/* WHITE CIRCLE DESIGN */
+.circle-one {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.circle-two {
+    position: absolute;
+    top: 180px;
+    left: -120px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* LOGO */
+.logo {
+    position: absolute;
+    top: 45px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    z-index: 5;
+
+    border-radius: 50%;
+    background: #ffffff;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+    font-weight: bold;
+    color: {{PRIMARY_COLOR}};
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* COMPANY NAME */
+.company-name {
+    position: absolute;
+    top: 180px;
+    left: 50px;
+    z-index: 5;
+    width: 500px;
+    color: #ffffff;
+}
+
+.company-name h1 {
+    font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.company-name p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* MAIN WHITE CONTENT AREA */
+.main-content {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    padding: 45px 50px;
+}
+
+/* DESCRIPTION */
+.description {
+    width: 58%;
+}
+
+.description h2 {
+    color: {{SECONDARY_COLOR}};
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.description p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333333;
+}
+
+/* SERVICES BOX */
+.services-box {
+    position: absolute;
+    top: 45px;
+    right: 50px;
+    width: 250px;
+    padding: 25px;
+    background: {{PRIMARY_COLOR}};
+    color: #ffffff;
+    border-radius: 12px;
+}
+
+.services-box h3 {
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.services-box p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* CONTACT AREA */
+.contact {
+    position: absolute;
+    left: 50px;
+    bottom: 70px;
+    width: 58%;
+}
+
+.contact h3 {
+    color: {{SECONDARY_COLOR}};
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.contact p {
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 6px;
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px 50px;
+    background: {{SECONDARY_COLOR}};
+    color: #ffffff;
+    font-size: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="brochure">
+
+    <!-- TOP DESIGN -->
+    <div class="top-area"></div>
+    <div class="circle-one"></div>
+    <div class="circle-two"></div>
+
+    <!-- LOGO -->
+    <div class="logo">
+        {{LOGO}}
+    </div>
+
+    <!-- COMPANY NAME AND TAGLINE -->
+    <div class="company-name">
+        <h1>{{COMPANY_NAME}}</h1>
+        <p>{{TAGLINE}}</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <div class="description">
+            <h2>About Our Business</h2>
+            <p>{{DESCRIPTION}}</p>
+        </div>
+
+        <div class="services-box">
+            <h3>Our Services</h3>
+            <p>{{SERVICES}}</p>
+        </div>
+
+    </div>
+
+    <!-- CONTACT DETAILS -->
+    <div class="contact">
+        <h3>{{FULL_NAME}}</h3>
+        <p><strong>Email:</strong> {{EMAIL}}</p>
+        <p><strong>Phone:</strong> {{PHONE}}</p>
+        <p><strong>Address:</strong> {{ADDRESS}}</p>
+        <p><strong>Website:</strong> {{WEBSITE_URL}}</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © {{YEAR}} {{COMPANY_NAME}} • {{TAGLINE}}
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{COMPANY_NAME}} Brochure</title>
+
+<style>
+
+/* Print as A4 paper */
+@page {
+    size: A4;
+    margin: 0;
+}
+
+/* Remove default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page background outside brochure */
+body {
+    background: #f5f7f6;
+    font-family: Arial, sans-serif;
+}
+
+/* Main brochure page */
+.brochure {
+    width: 210mm;
+    height: 297mm;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background: #22e609;
+}
+
+/* Background office image */
+.city-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url('https://rikkeisoft.com/wp-content/uploads/2022/09/what-is-a-technology-company.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: grayscale(100%);
+}
+
+/* White layer over background image */
+.city-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.55);
+}
+
+/* Main left colour shape */
+.left-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 58%;
+    height: 100%;
+
+    background: linear-gradient(
+        180deg,
+        {{PRIMARY_COLOR}} 0%,
+        {{SECONDARY_COLOR}} 100%
+    );
+
+    clip-path: polygon(
+        0 0,
+        78% 0,
+        55% 100%,
+        0 100%
+    );
+}
+
+/* Light bottom design shape */
+.light-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 70%;
+    height: 32%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    clip-path: polygon(
+        0 100%,
+        0 40%,
+        45% 0,
+        100% 20%,
+        100% 100%
+    );
+}
+
+/* Dark bottom design shape */
+.dark-shape {
+    position: absolute;
+    bottom: -30px;
+    left: -20px;
+
+    width: 80%;
+    height: 28%;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    clip-path: polygon(
+        0 100%,
+        0 50%,
+        45% 0,
+        100% 35%,
+        100% 100%
+    );
+}
+
+/* Curved white line */
+.curve {
+    position: absolute;
+    bottom: 170px;
+    left: 160px;
+
+    width: 520px;
+    height: 220px;
+
+    border-top: 3px solid rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+
+    transform: rotate(-10deg);
+}
+
+/* Main text area */
+.content {
+    position: absolute;
+    top: 70px;
+    left: 55px;
+
+    z-index: 5;
+    color: white;
+    width: 320px;
+}
+
+/* Logo circle */
+.logo {
+    width: 110px;
+    height: 110px;
+
+    border: 3px solid white;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+    font-weight: bold;
+
+    margin-bottom: 45px;
+
+    overflow: hidden;
+    background: white;
+    color: {{PRIMARY_COLOR}};
+}
+
+/* Uploaded logo image */
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Company name */
+.content h1 {
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Company description */
+.tagline {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Contact information section */
+.company-info {
+    position: absolute;
+    left: 55px;
+    bottom: 105px;
+
+    color: white;
+    z-index: 5;
+    width: 330px;
+}
+
+/* Owner name */
+.company-info h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+/* Contact text */
+.company-info p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    left: 55px;
+    bottom: 35px;
+
+    color: white;
+    z-index: 5;
+
+    font-size: 12px;
+    width: 330px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="brochure">
+
+    <!-- BACKGROUND -->
+    <div class="city-bg"></div>
+    <div class="city-overlay"></div>
+
+    <!-- COLOUR DESIGNS -->
+    <div class="left-panel"></div>
+    <div class="light-shape"></div>
+    <div class="dark-shape"></div>
+    <div class="curve"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <!-- Logo from uploaded image -->
+        <div class="logo">
+            {{LOGO}}
+        </div>
+
+        <!-- Company name -->
+        <h1>{{COMPANY_NAME}}</h1>
+
+        <!-- Business description -->
+        <p class="tagline">
+            {{DESCRIPTION}}
+        </p>
+
+    </div>
+
+    <!-- CONTACT DETAILS -->
+    <div class="company-info">
+
+        <h3>{{FULL_NAME}}</h3>
+
+        <p>{{EMAIL}}</p>
+        <p>{{PHONE}}</p>
+        <p>{{ADDRESS}}</p>
+        <p>{{WEBSITE_URL}}</p>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © {{YEAR}} {{COMPANY_NAME}} • {{TAGLINE}}
+    </div>
+
+</div>
+
+</body>
+</html>
